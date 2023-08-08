@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const lotteryRoute = require('./routes/checkLottery');
 const authRoutes = require('./routes/authRoutes');
 const app = express();
+require('dotenv').config({ path: './.env' });
 
 app.use(express.json());
 app.use(cors());
@@ -12,10 +13,9 @@ app.use('/api/lottery', lotteryRoute);
 app.use('/api/auth', authRoutes);
 const port = 3001;
 
+const DB = process.env.MONGODB_URL;
 mongoose
-  .connect(
-    'mongodb+srv://megamillion:megamillion@cluster0.dxoonb3.mongodb.net/'
-  )
+  .connect(DB)
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(port, () => {
