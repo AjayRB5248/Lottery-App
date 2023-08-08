@@ -1,3 +1,4 @@
+const User = require('../models/User');
 const { calculateMegaMillion } = require('../utils/MegaMillion');
 const {
   checkMegaBall,
@@ -6,7 +7,6 @@ const {
 } = require('../utils/helperFunctions');
 
 const checkLottery = async (req, res) => {
-  //  /mm/q/q?userNumber=10,20,30,40,50,60
   const userNumbers = req.query.userNumber.trim().split(',').map(Number);
   console.log({ userNumbers });
   const winningMegaMillions = winningNumbers.megamillions;
@@ -31,6 +31,23 @@ const checkLottery = async (req, res) => {
     hasMegaBall,
     winningMegaMillions.megaplier
   );
+
+  // Update the user's lottery history
+  try {
+    const userId = req.user.token;
+    await User.findByIdAndUpdate(userId, {
+      $push: {
+        lotteryHistory: {
+          numbers: userNumbers.slice(0, 5),
+          timestamp: new Date(),
+        },
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: 'An error occurred while updating lottery history.',
+    });
+  }
 
   res.json({
     winningNumbers: winningMegaMillions.numbers,

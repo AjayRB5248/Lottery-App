@@ -3,6 +3,6 @@ const router = express.Router();
 
 const { checkLottery } = require('../controller/checkLottery');
 
-router.get('/mm/q', checkLottery);
+router.post('/mm/q', checkLottery);
 
 module.exports = router;
