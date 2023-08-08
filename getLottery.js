@@ -62,6 +62,7 @@ async function getLottery(state) {
 
   //You Need to work on for Powerball and MegaMillion Both
   return payload;
+
   /* EXAMPLE PAYLOAD IF DOING PB AND MM 
   const examplePayload = {
     megamillion: {
@@ -80,7 +81,7 @@ async function getLottery(state) {
       allNumber: pbLotteryNumber,
       winningNumber: pbWinningNumber,
       powerball: powerball,
-      multiplier: multiplier,
+      powerplay: powerplay,
     },
   };
   */
