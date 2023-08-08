@@ -1,0 +1,907 @@
+{
+    "0": {
+        "name": "Powerball",
+        "plays": [
+            {
+                "name": "Powerball",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/09/2023",
+                        "nextDrawJackpot": 170000000,
+                        "numbers": [
+                            {
+                                "value": "06",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "13",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "20",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "35",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "54",
+                                "order": 5,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "22",
+                                "order": 6,
+                                "specialBall": {
+                                    "name": "Powerball",
+                                    "ballType": ""
+                                }
+                            },
+                            {
+                                "value": "2",
+                                "order": 7,
+                                "specialBall": {
+                                    "name": "Power Play",
+                                    "ballType": ""
+                                }
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            }
+        ]
+    },
+    "1": {
+        "name": "MEGA Millions",
+        "plays": [
+            {
+                "name": "MEGA Millions",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/04/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 1550000000,
+                        "numbers": [
+                            {
+                                "value": "11",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "30",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "45",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "52",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "56",
+                                "order": 5,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "20",
+                                "order": 6,
+                                "specialBall": {
+                                    "name": "Mega Ball",
+                                    "ballType": ""
+                                }
+                            },
+                            {
+                                "value": "2",
+                                "order": 7,
+                                "specialBall": {
+                                    "name": "Megaplier",
+                                    "ballType": ""
+                                }
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            }
+        ]
+    },
+    "2": {
+        "name": "Lotto",
+        "plays": [
+            {
+                "name": "Lotto",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/09/2023",
+                        "nextDrawJackpot": 15000000,
+                        "numbers": [
+                            {
+                                "value": "02",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "22",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "25",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "26",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "42",
+                                "order": 5,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "45",
+                                "order": 6,
+                                "specialBall": null
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            }
+        ]
+    },
+    "3": {
+        "name": "Cash 5",
+        "plays": [
+            {
+                "name": "Cash 5",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 25000,
+                        "numbers": [
+                            {
+                                "value": "04",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "12",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "17",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "18",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "25",
+                                "order": 5,
+                                "specialBall": null
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            }
+        ]
+    },
+    "4": {
+        "name": "Two Step",
+        "plays": [
+            {
+                "name": "Two Step",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/10/2023",
+                        "nextDrawJackpot": 200000,
+                        "numbers": [
+                            {
+                                "value": "04",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "08",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "12",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "28",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "32",
+                                "order": 5,
+                                "specialBall": {
+                                    "name": "Bonus",
+                                    "ballType": ""
+                                }
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            }
+        ]
+    },
+    "5": {
+        "name": "All or Nothing",
+        "plays": [
+            {
+                "name": "Morning",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "03",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "04",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "05",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "11",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "13",
+                                "order": 5,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "14",
+                                "order": 6,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "15",
+                                "order": 7,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "20",
+                                "order": 8,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "21",
+                                "order": 9,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "22",
+                                "order": 10,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "23",
+                                "order": 11,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "24",
+                                "order": 12,
+                                "specialBall": null
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            },
+            {
+                "name": "Day",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "02",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "03",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "05",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "06",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "08",
+                                "order": 5,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "09",
+                                "order": 6,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "12",
+                                "order": 7,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "13",
+                                "order": 8,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "14",
+                                "order": 9,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "18",
+                                "order": 10,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "21",
+                                "order": 11,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "23",
+                                "order": 12,
+                                "specialBall": null
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            },
+            {
+                "name": "Evening",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "01",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "03",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "04",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "08",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "10",
+                                "order": 5,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "11",
+                                "order": 6,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "13",
+                                "order": 7,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "16",
+                                "order": 8,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "18",
+                                "order": 9,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "21",
+                                "order": 10,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "23",
+                                "order": 11,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "24",
+                                "order": 12,
+                                "specialBall": null
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            },
+            {
+                "name": "Night",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "01",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "02",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "03",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "05",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "07",
+                                "order": 5,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "09",
+                                "order": 6,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "10",
+                                "order": 7,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "11",
+                                "order": 8,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "17",
+                                "order": 9,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "19",
+                                "order": 10,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "21",
+                                "order": 11,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "24",
+                                "order": 12,
+                                "specialBall": null
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            }
+        ]
+    },
+    "6": {
+        "name": "Daily 4",
+        "plays": [
+            {
+                "name": "Morning",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "6",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "6",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "9",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "7",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "2",
+                                "order": 5,
+                                "specialBall": {
+                                    "name": "Daily 4 Morning Fireball",
+                                    "ballType": ""
+                                }
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            },
+            {
+                "name": "Day",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "6",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "4",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "3",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "4",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "9",
+                                "order": 5,
+                                "specialBall": {
+                                    "name": "Daily 4 Day Fireball",
+                                    "ballType": ""
+                                }
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            },
+            {
+                "name": "Evening",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "4",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "8",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "4",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "6",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "9",
+                                "order": 5,
+                                "specialBall": {
+                                    "name": "Daily 4 Evening Fireball",
+                                    "ballType": ""
+                                }
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            },
+            {
+                "name": "Night",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "7",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "9",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "1",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "6",
+                                "order": 4,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "7",
+                                "order": 5,
+                                "specialBall": {
+                                    "name": "Daily 4 Night Fireball",
+                                    "ballType": ""
+                                }
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            }
+        ]
+    },
+    "7": {
+        "name": "Pick 3",
+        "plays": [
+            {
+                "name": "Morning",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "5",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "1",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "0",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "7",
+                                "order": 4,
+                                "specialBall": {
+                                    "name": "Pick 3 Morning Fireball",
+                                    "ballType": ""
+                                }
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            },
+            {
+                "name": "Day",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "4",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "0",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "0",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "7",
+                                "order": 4,
+                                "specialBall": {
+                                    "name": "Pick 3 Day Fireball",
+                                    "ballType": ""
+                                }
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            },
+            {
+                "name": "Evening",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "8",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "3",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "9",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "9",
+                                "order": 4,
+                                "specialBall": {
+                                    "name": "Pick 3 Evening Fireball",
+                                    "ballType": ""
+                                }
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            },
+            {
+                "name": "Night",
+                "active": null,
+                "draws": [
+                    {
+                        "date": "08/07/2023",
+                        "nextDrawDate": "08/08/2023",
+                        "nextDrawJackpot": 0,
+                        "numbers": [
+                            {
+                                "value": "4",
+                                "order": 1,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "9",
+                                "order": 2,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "8",
+                                "order": 3,
+                                "specialBall": null
+                            },
+                            {
+                                "value": "0",
+                                "order": 4,
+                                "specialBall": {
+                                    "name": "Pick 3 Night Fireball",
+                                    "ballType": ""
+                                }
+                            }
+                        ],
+                        "prizes": [],
+                        "extraFields": []
+                    }
+                ]
+            }
+        ]
+    },
+    "status": "Results for tx"
+}
