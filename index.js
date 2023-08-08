@@ -3,8 +3,16 @@ const { calculateMegaMillion } = require("./MegaMillion");
 const { getLottery } = require("./getLottery");
 const app = express();
 
-//Use this for test cases, Actual data can be taken from the DB or getLottery();
-//getLottery will return a similar payload with winning numbers and jackpot amount
+/*
+
+For Megamillion: https://www.megamillions.com/How-to-Play.aspx#:~:text=Mega%20Millions%C2%AE%20tickets%20cost,winning%20numbers%20in%20a%20drawing.
+For Powerball: https://www.powerball.com/
+
+Use this for test cases, Actual data can be taken from the DB or getLottery();
+getLottery will return a similar payload with winning numbers and jackpot amount
+
+const winningNumber = await getLottery('state') // do 'tx'
+*/
 const winningNumbers = {
   megamillions: {
     numbers: [11, 30, 45, 52, 56],
@@ -43,7 +51,6 @@ app.get("/mm/q", async (req, res) => {
     });
     return;
   }
-  //   console.log(await getLottery("tx"));
   const matchedNumbers = compareNumbers(
     userNumbers.slice(0, 5),
     winningMegaMillions.numbers
@@ -68,8 +75,14 @@ app.get("/mm/q", async (req, res) => {
   });
 });
 
-/*You need to create an endpoint for Powerball 
+/*
+You need to create an endpoint for Powerball 
+Create multiple page for diffrent endpoint.
+Don't jam everything on index
+
+example powerball endpoint
 /pb/q?userNumber=
+
 */
 
 const port = 3001;
