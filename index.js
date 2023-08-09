@@ -11,7 +11,12 @@ const { getLottery } = require('./getLottery');
 const { MegamillionResult, PowerballResult } = require('./models/lottery');
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+    credentials: true,
+  })
+);
 
 app.use('/api/auth', authRoutes);
 app.use('/api/lottery', authenticateToken, lotteryRoute);
