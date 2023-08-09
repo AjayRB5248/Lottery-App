@@ -22,7 +22,7 @@ const register = async (req, res) => {
     await newUser.save();
     res.status(201).json({ newUser, message: 'User registered successfully' });
   } catch (error) {
-    res.status(500).json({ message: 'Registration failed' });
+    res.status(500).json({ message: 'Registration failed', error });
   }
 };
 
@@ -43,10 +43,9 @@ const login = async (req, res) => {
     const token = generateToken({ token: user._id });
     res.status(200).json({ user, token });
   } catch (error) {
-    res.status(500).json({ message: 'Authentication failed' });
+    res.status(500).json({ message: 'Authentication failed', error });
   }
 };
-
 
 module.exports = {
   register,
