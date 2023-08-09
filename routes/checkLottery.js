@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const { checkLottery } = require('../controller/checkLottery');
+const { checkMMLottery } = require('../controller/checkLottery');
 
-router.post('/mm/q', checkLottery);
+router.post('/megamillion', checkMMLottery);
+// router.post('/powerball', checkPBLottery);
 
 module.exports = router;

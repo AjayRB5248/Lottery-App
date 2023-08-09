@@ -7,8 +7,9 @@ const userHistory = require('./routes/getUserHistory');
 const app = express();
 require('dotenv').config({ path: './.env' });
 const authenticateToken = require('./middleware/auth');
-const { getLottery } = require('./getLottery');
+const { getLottery } = require('./controller/getLottery');
 const { MegamillionResult, PowerballResult } = require('./models/lottery');
+const cron = require('node-cron');
 
 app.use(express.json());
 app.use(
@@ -55,8 +56,13 @@ async function fetchLotteryData() {
 }
 
 // Call the function to fetch lottery data
-
 app.get('/fetchLotteryData', fetchLotteryData);
+
+cron.schedule('0 * * * *', () => {
+  console.log('Cron job executed!');
+  // fetchLotteryData();
+});
+
 app.get('/', (req, res) => {
   res.send('Server Started ...');
 });

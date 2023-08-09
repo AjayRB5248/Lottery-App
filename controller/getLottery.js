@@ -1,10 +1,10 @@
 const dotenv = require('dotenv');
 dotenv.config();
-const resultMock = require('./resultMock.json');
+const resultMock = require('../resultMock.json');
 const API_KEY = process.env.X_Rapidapi_Key;
 const host = process.env.X_Rapidapi_Host;
 
-async function getLottery(state) {
+async function getLottery() {
   const options = {
     method: 'GET',
     headers: {
@@ -12,11 +12,11 @@ async function getLottery(state) {
       'X-RapidAPI-Host': host,
     },
   };
-  const response = await fetch(
-    `https://lottery-results.p.rapidapi.com/games-by-state/us/${state}`,
-    options
-  );
-  //const results = await response.json();
+  // const response = await fetch(
+  //   `https://lottery-results.p.rapidapi.com/games-by-state/us/tx`,
+  //   options
+  // );
+  // const results = await response.json();
   const results = resultMock;
   const powerballResults = results[0];
   const megamillionsResults = results[1];
@@ -52,7 +52,6 @@ async function getLottery(state) {
   const pbmegaplier = powerBallDraws.numbers[6].value;
   const pbmegaball = powerBallDraws.numbers[5].value;
 
-  //THESE PAYLOAD SHOULD BE STORED IN Database, with unique validator present, so no duplicate data.
   const MMpayload = {
     jackpot: jackpot,
     drawDate: drawDate,

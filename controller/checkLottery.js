@@ -6,7 +6,7 @@ const {
   winningNumbers,
 } = require('../utils/helperFunctions');
 
-const checkLottery = async (req, res) => {
+const checkMMLottery = async (req, res) => {
   const userNumbers = req.query.userNumber.trim().split(',').map(Number);
   console.log({ userNumbers });
   const winningMegaMillions = winningNumbers.megamillions;
@@ -58,9 +58,6 @@ const checkLottery = async (req, res) => {
   });
 };
 
-
-
-
 module.exports = {
-  checkLottery,
+  checkMMLottery,
 };
