@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const lotteryRoute = require('./routes/checkLottery');
 const authRoutes = require('./routes/authRoutes');
+const userHistory = require('./routes/getUserHistory');
 const app = express();
 require('dotenv').config({ path: './.env' });
 const authenticateToken = require('./middleware/auth');
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/api/lottery', authenticateToken, lotteryRoute);
+app.use('/api/user', authenticateToken, userHistory);
 app.use('/api/auth', authRoutes);
 const port = 3001;
 
