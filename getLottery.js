@@ -1,17 +1,15 @@
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 dotenv.config();
-const resultMock = require("./resultMock.json");
+const resultMock = require('./resultMock.json');
 const API_KEY = process.env.X_Rapidapi_Key;
 const host = process.env.X_Rapidapi_Host;
 
-//PLEASE USE resultMock.json FOR JSON PARSING, WE HAVE LIMITED API REQUEST
-// module.exports = {
 async function getLottery(state) {
   const options = {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "X-RapidAPI-Key": API_KEY,
-      "X-RapidAPI-Host": host,
+      'X-RapidAPI-Key': API_KEY,
+      'X-RapidAPI-Host': host,
     },
   };
   const response = await fetch(
@@ -20,17 +18,12 @@ async function getLottery(state) {
   );
   //const results = await response.json();
   const results = resultMock;
-  // console.log(results);
-  // const powerballResults = results[0];
+  const powerballResults = results[0];
   const megamillionsResults = results[1];
-
-  //For Megamillion API response is of INDEX 1
-
   const megaMillionDraws = megamillionsResults.plays[0].draws[0];
   const drawDate = new Date(megaMillionDraws.date);
   const nextDrawDate = new Date(megaMillionDraws.date);
   const jackpot = megaMillionDraws.nextDrawJackpot;
-  console.log(drawDate);
 
   const mmLotteryNumber = [];
   const mmWinningNumber = [];
@@ -43,14 +36,24 @@ async function getLottery(state) {
   const megaplier = megaMillionDraws.numbers[6].value;
   const megaball = megaMillionDraws.numbers[5].value;
 
-  //Remove the console logs on production
-  console.log("All Lottery Number: ", mmLotteryNumber);
-  console.log("Winning Number:", mmWinningNumber);
-  console.log("Mega Ball: ", megaball);
-  console.log("MegaPlier: ", megaplier);
+  const powerBallDraws = powerballResults.plays[0].draws[0];
+  const pbdrawDate = new Date(powerBallDraws.date);
+  const pbnextDrawDate = new Date(powerBallDraws.date);
+  const pbjackpot = powerBallDraws.nextDrawJackpot;
+
+  const pbLotteryNumber = [];
+  const pbWinningNumber = [];
+  for (numbers of powerBallDraws.numbers) {
+    pbLotteryNumber.push(numbers.value);
+  }
+  for (let i = 0; i <= 4; i++) {
+    pbWinningNumber.push(powerBallDraws.numbers[i].value);
+  }
+  const pbmegaplier = powerBallDraws.numbers[6].value;
+  const pbmegaball = powerBallDraws.numbers[5].value;
 
   //THESE PAYLOAD SHOULD BE STORED IN Database, with unique validator present, so no duplicate data.
-  const payload = {
+  const MMpayload = {
     jackpot: jackpot,
     drawDate: drawDate,
     nextDrawDate: nextDrawDate,
@@ -59,33 +62,19 @@ async function getLottery(state) {
     megaball: megaball,
     megaplier: megaplier,
   };
-
-  //You Need to work on for Powerball and MegaMillion Both
-  return payload;
-
-  /* EXAMPLE PAYLOAD IF DOING PB AND MM 
-  const examplePayload = {
-    megamillion: {
-      jackpot: jackpot,
-      drawDate: drawDate,
-      nextDrawDate: nextDrawDate,
-      allNumber: mmLotteryNumber,
-      winningNumber: mmWinningNumber,
-      megaball: megaball,
-      megaplier: megaplier,
-    },
-    powerball: {
-      jackpot: jackpot,
-      drawDate: drawDate,
-      nextDrawDate: nextDrawDate,
-      allNumber: pbLotteryNumber,
-      winningNumber: pbWinningNumber,
-      powerball: powerball,
-      powerplay: powerplay,
-    },
+  const PBpayload = {
+    jackpot: pbjackpot,
+    drawDate: pbdrawDate,
+    nextDrawDate: pbnextDrawDate,
+    allNumber: pbLotteryNumber,
+    winningNumber: pbWinningNumber,
+    megaball: pbmegaball,
+    megaplier: pbmegaplier,
   };
-  */
-}
-// };
 
-getLottery("tx");
+  return { MMpayload, PBpayload };
+}
+
+module.exports = {
+  getLottery,
+};

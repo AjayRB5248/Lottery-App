@@ -7,13 +7,15 @@ const userHistory = require('./routes/getUserHistory');
 const app = express();
 require('dotenv').config({ path: './.env' });
 const authenticateToken = require('./middleware/auth');
+const { getLottery } = require('./getLottery');
+const { MegamillionResult, PowerballResult } = require('./models/lottery');
 
 app.use(express.json());
 app.use(cors());
 
+app.use('/api/auth', authRoutes);
 app.use('/api/lottery', authenticateToken, lotteryRoute);
 app.use('/api/user', authenticateToken, userHistory);
-app.use('/api/auth', authRoutes);
 const port = 3001;
 
 const DB = process.env.MONGODB_URL;
@@ -29,6 +31,27 @@ mongoose
     console.error('MongoDB connection error:', error);
   });
 
+async function fetchLotteryData() {
+  try {
+    const state = 'tx';
+    const { MMpayload, PBpayload } = await getLottery(state);
+    console.log({ MMpayload, PBpayload });
+
+    const megamillionResult = new MegamillionResult(MMpayload);
+    const powerballResult = new PowerballResult(PBpayload);
+
+    await megamillionResult.save();
+    await powerballResult.save();
+
+    console.log('Lottery data stored successfully.');
+  } catch (error) {
+    console.error('Error getting and storing lottery data:', error);
+  }
+}
+
+// Call the function to fetch lottery data
+
+app.get('/fetchLotteryData', fetchLotteryData);
 app.get('/', (req, res) => {
   res.send('Server Started ...');
 });
