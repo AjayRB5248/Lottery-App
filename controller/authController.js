@@ -4,13 +4,6 @@ const { generateToken } = require('../utils/jwtHelper');
 
 const register = async (req, res) => {
   const { email, password } = req.body;
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!email.match(emailRegex)) {
-    return res.status(400).json({ message: 'Invalid email format' });
-  }
-
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
