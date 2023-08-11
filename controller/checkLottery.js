@@ -62,6 +62,7 @@ const checkMMLottery = async (req, res) => {
       $push: {
         lotteryHistory: {
           numbers: userNumbers.slice(0, 5),
+          megaball: userNumbers[5],
           category: 'megamillion',
           drawdate: winningMegaMillions.drawDate,
           timestamp: new Date(),
@@ -112,8 +113,8 @@ const checkPBLottery = async (req, res) => {
       $push: {
         lotteryHistory: {
           numbers: userNumbers.slice(0, 5),
+          megaball: userNumbers[5],
           category: 'powerball',
-          powerball: userNumbers[5],
           drawdate: winningPowerball.drawDate,
           timestamp: new Date(),
         },
