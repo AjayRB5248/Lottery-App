@@ -32,6 +32,7 @@ const checkMMLottery = async (req, res) => {
   const userNumbers = req.query.userNumber.trim().split(',').map(Number);
 
   const winningMegaMillions = await MMWinningNumbers();
+  console.log(winningMegaMillions, 'winningMegaMillions');
 
   if (userNumbers.length !== 6 || userNumbers.some(isNaN)) {
     res.status(400).json({
@@ -62,6 +63,7 @@ const checkMMLottery = async (req, res) => {
         lotteryHistory: {
           numbers: userNumbers.slice(0, 5),
           category: 'megamillion',
+          drawdate: winningMegaMillions.drawDate,
           timestamp: new Date(),
         },
       },
@@ -112,6 +114,7 @@ const checkPBLottery = async (req, res) => {
           numbers: userNumbers.slice(0, 5),
           category: 'powerball',
           powerball: userNumbers[5],
+          drawdate: winningPowerball.drawDate,
           timestamp: new Date(),
         },
       },
