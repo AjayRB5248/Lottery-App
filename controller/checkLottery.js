@@ -1,19 +1,20 @@
-const User = require("../models/User");
-const { calculateMegaMillion } = require("../utils/MegaMillion");
+const User = require('../models/User');
+const { calculateMegaMillion } = require('../utils/MegaMillion');
+const { comparePowerballNumbers } = require('../utils/PowerBall');
 const {
   checkMegaBall,
   compareNumbers,
   winningNumbers,
-} = require("../utils/helperFunctions");
+} = require('../utils/helperFunctions');
 
 const checkMMLottery = async (req, res) => {
-  const userNumbers = req.query.userNumber.trim().split(",").map(Number);
+  const userNumbers = req.query.userNumber.trim().split(',').map(Number);
   console.log({ userNumbers });
   const winningMegaMillions = winningNumbers.megamillions;
 
   if (userNumbers.length !== 6 || userNumbers.some(isNaN)) {
     res.status(400).json({
-      error: "Invalid input. Please provide 6 numbers separated by commas.",
+      error: 'Invalid input. Please provide 6 numbers separated by commas.',
     });
     return;
   }
@@ -39,14 +40,14 @@ const checkMMLottery = async (req, res) => {
       $push: {
         lotteryHistory: {
           numbers: userNumbers.slice(0, 5),
-          category: "megamillion",
+          category: 'megamillion',
           timestamp: new Date(),
         },
       },
     });
   } catch (error) {
     res.status(500).json({
-      error: "An error occurred while updating lottery history.",
+      error: 'An error occurred while updating lottery history.',
     });
   }
 
@@ -60,13 +61,13 @@ const checkMMLottery = async (req, res) => {
 };
 
 const checkPBLottery = async (req, res) => {
-  const userNumbers = req.query.userNumber.trim().split(",").map(Number);
+  const userNumbers = req.query.userNumber.trim().split(',').map(Number);
   console.log({ userNumbers });
   const winningPowerball = winningNumbers.powerball;
 
   if (userNumbers.length !== 6 || userNumbers.some(isNaN)) {
     res.status(400).json({
-      error: "Invalid input. Please provide 6 numbers separated by commas.",
+      error: 'Invalid input. Please provide 6 numbers separated by commas.',
     });
     return;
   }
@@ -89,7 +90,7 @@ const checkPBLottery = async (req, res) => {
       $push: {
         lotteryHistory: {
           numbers: userNumbers.slice(0, 5),
-          category: "powerball",
+          category: 'powerball',
           powerball: userNumbers[5],
           timestamp: new Date(),
         },
@@ -97,7 +98,7 @@ const checkPBLottery = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
-      error: "An error occurred while updating lottery history.",
+      error: 'An error occurred while updating lottery history.',
     });
   }
 
@@ -112,4 +113,5 @@ const checkPBLottery = async (req, res) => {
 
 module.exports = {
   checkMMLottery,
+  checkPBLottery,
 };
