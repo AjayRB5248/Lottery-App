@@ -16,8 +16,8 @@ const powerballResultSchema = new mongoose.Schema({
   jackpot: Number,
   allNumber: [Number],
   winningNumber: { type: [Number], unique: true },
-  megaball: Number,
-  megaplier: Number,
+  powerball: Number,
+  powerplay: Number,
 });
 
 const PowerballResult = mongoose.model(

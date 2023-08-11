@@ -2,20 +2,20 @@ function calculateMegaMillion(matchedDigits, hasMegaBall, megaplier) {
   if (matchedDigits === 5 && hasMegaBall) {
     prize = {
       result: true,
-      headings: "Jackpot!",
+      headings: 'Jackpot!',
       matchedNumbers: matchedDigits,
       megaplier: megaplier,
       isMegaplierMatched: true,
-      amount: jackpotAmount,
+      amount: 'JackpotAmount',
     };
   } else if (matchedDigits === 5) {
     prize = {
       result: true,
-      headings: "Match 5 numbers without Mega Ball: $1,000,000",
+      headings: 'Match 5 numbers without Mega Ball: $1,000,000',
       matched: matchedDigits,
       megaplier: megaplier,
       isMegaplierMatched: false,
-      win: "1,000,000",
+      win: '1,000,000',
     };
   } else if (matchedDigits === 4 && hasMegaBall) {
     prize = {
@@ -31,7 +31,7 @@ function calculateMegaMillion(matchedDigits, hasMegaBall, megaplier) {
   } else if (matchedDigits === 4) {
     prize = {
       result: true,
-      headings: "Match 4 numbers without Mega Ball: $500",
+      headings: 'Match 4 numbers without Mega Ball: $500',
       matched: matchedDigits,
       megaplier: megaplier,
       isMegaplierMatched: false,
@@ -51,7 +51,7 @@ function calculateMegaMillion(matchedDigits, hasMegaBall, megaplier) {
   } else if (matchedDigits === 3) {
     prize = {
       result: true,
-      headings: "Match 3 numbers without Mega Ball: $10",
+      headings: 'Match 3 numbers without Mega Ball: $10',
       matched: matchedDigits,
       megaplier: megaplier,
       isMegaplierMatched: false,
@@ -95,7 +95,7 @@ function calculateMegaMillion(matchedDigits, hasMegaBall, megaplier) {
       matched: 0,
       megaplier: megaplier,
       isMegaplierMatched: false,
-      win: "0",
+      win: '0',
     };
   }
 

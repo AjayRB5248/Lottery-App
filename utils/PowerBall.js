@@ -1,23 +1,22 @@
 function calculatePowerball(matchedNumbers, hasPowerball, powerPlay) {
   let prize;
-  
+
   if (matchedNumbers === 5 && hasPowerball) {
     prize = {
       result: true,
-      headings: "Jackpot!",
+      headings: 'Jackpot!',
       matchedNumbers: matchedNumbers,
       powerPlay: powerPlay,
       isPowerPlayMatched: true,
-      amount: jackpotAmount,
+      amount: 'JackpotAmount',
     };
   } else if (matchedNumbers === 5) {
     prize = {
       result: true,
-      headings: "Match 5 numbers without Powerball: $1,000,000",
+      headings: 'Match 5 numbers without Powerball: $1,000,000',
       matched: matchedNumbers,
       powerPlay: powerPlay,
-      isPowerPlayMatched: false,
-      win: "1,000,000",
+      win: '1,000,000',
     };
   } else if (matchedNumbers === 4 && hasPowerball) {
     prize = {
@@ -33,7 +32,7 @@ function calculatePowerball(matchedNumbers, hasPowerball, powerPlay) {
   } else if (matchedNumbers === 4) {
     prize = {
       result: true,
-      headings: "Match 4 numbers without Powerball: $100",
+      headings: 'Match 4 numbers without Powerball: $100',
       matched: matchedNumbers,
       powerPlay: powerPlay,
       isPowerPlayMatched: false,
@@ -53,7 +52,7 @@ function calculatePowerball(matchedNumbers, hasPowerball, powerPlay) {
   } else if (matchedNumbers === 3) {
     prize = {
       result: true,
-      headings: "Match 3 numbers without Powerball: $7",
+      headings: 'Match 3 numbers without Powerball: $7',
       matched: matchedNumbers,
       powerPlay: powerPlay,
       isPowerPlayMatched: false,
@@ -97,22 +96,21 @@ function calculatePowerball(matchedNumbers, hasPowerball, powerPlay) {
       matched: 0,
       powerPlay: powerPlay,
       isPowerPlayMatched: false,
-      win: "0",
+      win: '0',
     };
   }
 
   return prize;
 }
 
-const winningPowerballNumbers = {
-  numbers: [5, 22, 33, 38, 42],
-  powerball: 17,
-};
-
-function comparePowerballNumbers(userNumbers, userPowerball, winningPowerballNumbers) {
+function comparePowerballNumbers(
+  userNumbers,
+  userPowerball,
+  winningPowerballNumbers
+) {
   let matchedNumbers = 0;
   for (const number of userNumbers) {
-    if (winningPowerballNumbers.numbers.includes(number)) {
+    if (winningPowerballNumbers.winningNumber.includes(number)) {
       matchedNumbers++;
     }
   }
