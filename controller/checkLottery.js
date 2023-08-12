@@ -1,15 +1,38 @@
 const User = require("../models/User");
+const { MegamillionResult, PowerballResult } = require("../models/lottery");
 const { calculateMegaMillion } = require("../utils/MegaMillion");
 const {
-  checkMegaBall,
-  compareNumbers,
-  winningNumbers,
-} = require("../utils/helperFunctions");
+  comparePowerballNumbers,
+  calculatePowerball,
+} = require("../utils/PowerBall");
+const { checkMegaBall, compareNumbers } = require("../utils/helperFunctions");
+
+const MMWinningNumbers = async (rew, res) => {
+  try {
+    const latestMmWinningNumber = await MegamillionResult.findOne({}).sort({
+      _id: -1,
+    });
+    return latestMmWinningNumber;
+  } catch (error) {
+    console.error(error);
+  }
+};
+const PBWinningNumbers = async (rew, res) => {
+  try {
+    const latestPbWinningNumber = await PowerballResult.findOne({}).sort({
+      _id: -1,
+    });
+    return latestPbWinningNumber;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const checkMMLottery = async (req, res) => {
   const userNumbers = req.query.userNumber.trim().split(",").map(Number);
-  console.log({ userNumbers });
-  const winningMegaMillions = winningNumbers.megamillions;
+
+  const winningMegaMillions = await MMWinningNumbers();
+  console.log(winningMegaMillions, "winningMegaMillions");
 
   if (userNumbers.length !== 6 || userNumbers.some(isNaN)) {
     res.status(400).json({
@@ -19,7 +42,7 @@ const checkMMLottery = async (req, res) => {
   }
   const matchedNumbers = compareNumbers(
     userNumbers.slice(0, 5),
-    winningMegaMillions.numbers
+    winningMegaMillions.winningNumber
   );
   const hasMegaBall = checkMegaBall(
     userNumbers[5],
@@ -39,7 +62,9 @@ const checkMMLottery = async (req, res) => {
       $push: {
         lotteryHistory: {
           numbers: userNumbers.slice(0, 5),
+          megaball: userNumbers[5],
           category: "megamillion",
+          drawdate: winningMegaMillions.drawDate,
           timestamp: new Date(),
         },
       },
@@ -50,8 +75,8 @@ const checkMMLottery = async (req, res) => {
     });
   }
 
-  res.json({
-    winningNumbers: winningMegaMillions.numbers,
+  res.status(200).json({
+    winningNumbers: winningMegaMillions.winningNumber,
     megaBall: winningMegaMillions.megaball,
     userNumbers: userNumbers.slice(0, 5),
     userMegaBall: userNumbers[5],
@@ -61,8 +86,7 @@ const checkMMLottery = async (req, res) => {
 
 const checkPBLottery = async (req, res) => {
   const userNumbers = req.query.userNumber.trim().split(",").map(Number);
-  console.log({ userNumbers });
-  const winningPowerball = winningNumbers.powerball;
+  const winningPowerball = await PBWinningNumbers();
 
   if (userNumbers.length !== 6 || userNumbers.some(isNaN)) {
     res.status(400).json({
@@ -73,7 +97,7 @@ const checkPBLottery = async (req, res) => {
   const matchedNumbersInfo = comparePowerballNumbers(
     userNumbers.slice(0, 5),
     userNumbers[5],
-    winningPowerball.numbers
+    winningPowerball
   );
 
   const prize = calculatePowerball(
@@ -89,8 +113,9 @@ const checkPBLottery = async (req, res) => {
       $push: {
         lotteryHistory: {
           numbers: userNumbers.slice(0, 5),
+          megaball: userNumbers[5],
           category: "powerball",
-          powerball: userNumbers[5],
+          drawdate: winningPowerball.drawDate,
           timestamp: new Date(),
         },
       },
@@ -102,7 +127,7 @@ const checkPBLottery = async (req, res) => {
   }
 
   res.json({
-    winningNumbers: winningPowerball.numbers,
+    winningNumbers: winningPowerball.winningNumber,
     powerball: winningPowerball.powerball,
     userNumbers: userNumbers.slice(0, 5),
     userPowerball: userNumbers[5],
@@ -112,4 +137,5 @@ const checkPBLottery = async (req, res) => {
 
 module.exports = {
   checkMMLottery,
+  checkPBLottery,
 };

@@ -7,6 +7,8 @@ const userSchema = new mongoose.Schema({
     {
       numbers: { type: [Number], required: true },
       category: { type: String, required: true },
+      drawdate: { type: Date },
+      megaball: { type: Number, required: true },
       timestamp: { type: Date, default: Date.now },
     },
   ],

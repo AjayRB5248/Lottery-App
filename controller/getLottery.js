@@ -67,8 +67,8 @@ async function getLottery() {
     nextDrawDate: pbnextDrawDate,
     allNumber: pbLotteryNumber,
     winningNumber: pbWinningNumber,
-    megaball: pbmegaball,
-    megaplier: pbmegaplier,
+    powerball: pbmegaball,
+    powerplay: pbmegaplier,
   };
 
   return { MMpayload, PBpayload };
