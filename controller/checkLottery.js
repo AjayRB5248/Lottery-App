@@ -32,7 +32,6 @@ const checkMMLottery = async (req, res) => {
   const userNumbers = req.query.userNumber.trim().split(",").map(Number);
 
   const winningMegaMillions = await MMWinningNumbers();
-  console.log(winningMegaMillions, "winningMegaMillions");
 
   if (userNumbers.length !== 6 || userNumbers.some(isNaN)) {
     res.status(400).json({
@@ -40,10 +39,12 @@ const checkMMLottery = async (req, res) => {
     });
     return;
   }
+
   const matchedNumbers = compareNumbers(
     userNumbers.slice(0, 5),
     winningMegaMillions.winningNumber
   );
+  
   const hasMegaBall = checkMegaBall(
     userNumbers[5],
     winningMegaMillions.megaball
@@ -55,24 +56,27 @@ const checkMMLottery = async (req, res) => {
     winningMegaMillions.megaplier
   );
 
-  // Update the user's lottery history
-  try {
-    const userId = req.user.token;
-    await User.findByIdAndUpdate(userId, {
-      $push: {
-        lotteryHistory: {
-          numbers: userNumbers.slice(0, 5),
-          megaball: userNumbers[5],
-          category: "megamillion",
-          drawdate: winningMegaMillions.drawDate,
-          timestamp: new Date(),
+  if (req.user) {
+    // If the user is logged in, update the user's lottery history
+    try {
+      const userId = req.user.token;
+      await User.findByIdAndUpdate(userId, {
+        $push: {
+          lotteryHistory: {
+            numbers: userNumbers.slice(0, 5),
+            megaball: userNumbers[5],
+            category: "megamillion",
+            drawdate: winningMegaMillions.drawDate,
+            timestamp: new Date(),
+          },
         },
-      },
-    });
-  } catch (error) {
-    res.status(500).json({
-      error: "An error occurred while updating lottery history.",
-    });
+      });
+    } catch (error) {
+      res.status(500).json({
+        error: "An error occurred while updating lottery history.",
+      });
+      return;
+    }
   }
 
   res.status(200).json({
@@ -83,6 +87,7 @@ const checkMMLottery = async (req, res) => {
     prize,
   });
 };
+
 
 const checkPBLottery = async (req, res) => {
   const userNumbers = req.query.userNumber.trim().split(",").map(Number);
@@ -107,6 +112,7 @@ const checkPBLottery = async (req, res) => {
   );
 
   // Update the user's lottery history
+   if (req.user) {
   try {
     const userId = req.user.token;
     await User.findByIdAndUpdate(userId, {
@@ -124,6 +130,8 @@ const checkPBLottery = async (req, res) => {
     res.status(500).json({
       error: "An error occurred while updating lottery history.",
     });
+   return;
+    }
   }
 
   res.json({
