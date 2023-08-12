@@ -7,7 +7,7 @@ const {
 } = require("../utils/PowerBall");
 const { checkMegaBall, compareNumbers } = require("../utils/helperFunctions");
 
-const MMWinningNumbers = async (rew, res) => {
+const MMWinningNumbers = async (req, res) => {
   try {
     const latestMmWinningNumber = await MegamillionResult.findOne({}).sort({
       _id: -1,
@@ -17,7 +17,7 @@ const MMWinningNumbers = async (rew, res) => {
     console.error(error);
   }
 };
-const PBWinningNumbers = async (rew, res) => {
+const PBWinningNumbers = async (req, res) => {
   try {
     const latestPbWinningNumber = await PowerballResult.findOne({}).sort({
       _id: -1,
