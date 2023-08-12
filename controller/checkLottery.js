@@ -44,7 +44,7 @@ const checkMMLottery = async (req, res) => {
     userNumbers.slice(0, 5),
     winningMegaMillions.winningNumber
   );
-  
+
   const hasMegaBall = checkMegaBall(
     userNumbers[5],
     winningMegaMillions.megaball
@@ -53,7 +53,8 @@ const checkMMLottery = async (req, res) => {
   const prize = calculateMegaMillion(
     matchedNumbers,
     hasMegaBall,
-    winningMegaMillions.megaplier
+    winningMegaMillions.megaplier,
+    winningMegaMillions.jackpot
   );
 
   if (req.user) {
@@ -88,7 +89,6 @@ const checkMMLottery = async (req, res) => {
   });
 };
 
-
 const checkPBLottery = async (req, res) => {
   const userNumbers = req.query.userNumber.trim().split(",").map(Number);
   const winningPowerball = await PBWinningNumbers();
@@ -108,29 +108,30 @@ const checkPBLottery = async (req, res) => {
   const prize = calculatePowerball(
     matchedNumbersInfo.matchedNumbers,
     matchedNumbersInfo.hasPowerball,
-    winningPowerball.powerball
+    winningPowerball.powerball,
+    winningPowerball.jackpot
   );
 
   // Update the user's lottery history
-   if (req.user) {
-  try {
-    const userId = req.user.token;
-    await User.findByIdAndUpdate(userId, {
-      $push: {
-        lotteryHistory: {
-          numbers: userNumbers.slice(0, 5),
-          megaball: userNumbers[5],
-          category: "powerball",
-          drawdate: winningPowerball.drawDate,
-          timestamp: new Date(),
+  if (req.user) {
+    try {
+      const userId = req.user.token;
+      await User.findByIdAndUpdate(userId, {
+        $push: {
+          lotteryHistory: {
+            numbers: userNumbers.slice(0, 5),
+            megaball: userNumbers[5],
+            category: "powerball",
+            drawdate: winningPowerball.drawDate,
+            timestamp: new Date(),
+          },
         },
-      },
-    });
-  } catch (error) {
-    res.status(500).json({
-      error: "An error occurred while updating lottery history.",
-    });
-   return;
+      });
+    } catch (error) {
+      res.status(500).json({
+        error: "An error occurred while updating lottery history.",
+      });
+      return;
     }
   }
 
