@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 const {
   checkMMLottery,
   checkPBLottery,
-} = require('../controller/checkLottery');
+} = require("../controller/checkLottery");
 
-router.post('/megamillion', checkMMLottery);
-router.post('/powerball', checkPBLottery);
+router.get("/megamillion", checkMMLottery);
+router.get("/powerball", checkPBLottery);
 
 module.exports = router;
