@@ -1,11 +1,11 @@
-const User = require("../models/User");
-const { MegamillionResult, PowerballResult } = require("../models/lottery");
-const { calculateMegaMillion } = require("../utils/MegaMillion");
+const User = require('../models/User');
+const { MegamillionResult, PowerballResult } = require('../models/lottery');
+const { calculateMegaMillion } = require('../utils/MegaMillion');
 const {
   comparePowerballNumbers,
   calculatePowerball,
-} = require("../utils/PowerBall");
-const { checkMegaBall, compareNumbers } = require("../utils/helperFunctions");
+} = require('../utils/PowerBall');
+const { checkMegaBall, compareNumbers } = require('../utils/helperFunctions');
 
 const MMWinningNumbers = async (req, res) => {
   try {
@@ -29,13 +29,13 @@ const PBWinningNumbers = async (req, res) => {
 };
 
 const checkMMLottery = async (req, res) => {
-  const userNumbers = req.query.userNumber.trim().split(",").map(Number);
+  const userNumbers = req.query.userNumber.trim().split(',').map(Number);
 
   const winningMegaMillions = await MMWinningNumbers();
 
   if (userNumbers.length !== 6 || userNumbers.some(isNaN)) {
     res.status(400).json({
-      error: "Invalid input. Please provide 6 numbers separated by commas.",
+      error: 'Invalid input. Please provide 6 numbers separated by commas.',
     });
     return;
   }
@@ -60,13 +60,15 @@ const checkMMLottery = async (req, res) => {
   if (req.user) {
     // If the user is logged in, update the user's lottery history
     try {
+      console.log(req.user, 'megaMillion');
       const userId = req.user.token;
+      console.log(userId);
       await User.findByIdAndUpdate(userId, {
         $push: {
           lotteryHistory: {
             numbers: userNumbers.slice(0, 5),
             megaball: userNumbers[5],
-            category: "megamillion",
+            category: 'megamillion',
             drawdate: winningMegaMillions.drawDate,
             timestamp: new Date(),
           },
@@ -74,7 +76,7 @@ const checkMMLottery = async (req, res) => {
       });
     } catch (error) {
       res.status(500).json({
-        error: "An error occurred while updating lottery history.",
+        error: 'An error occurred while updating lottery history.',
       });
       return;
     }
@@ -90,12 +92,12 @@ const checkMMLottery = async (req, res) => {
 };
 
 const checkPBLottery = async (req, res) => {
-  const userNumbers = req.query.userNumber.trim().split(",").map(Number);
+  const userNumbers = req.query.userNumber.trim().split(',').map(Number);
   const winningPowerball = await PBWinningNumbers();
 
   if (userNumbers.length !== 6 || userNumbers.some(isNaN)) {
     res.status(400).json({
-      error: "Invalid input. Please provide 6 numbers separated by commas.",
+      error: 'Invalid input. Please provide 6 numbers separated by commas.',
     });
     return;
   }
@@ -114,14 +116,16 @@ const checkPBLottery = async (req, res) => {
 
   // Update the user's lottery history
   if (req.user) {
+    console.log(req.user, 'powerBall');
     try {
       const userId = req.user.token;
+      console.log(userId);
       await User.findByIdAndUpdate(userId, {
         $push: {
           lotteryHistory: {
             numbers: userNumbers.slice(0, 5),
             megaball: userNumbers[5],
-            category: "powerball",
+            category: 'powerball',
             drawdate: winningPowerball.drawDate,
             timestamp: new Date(),
           },
@@ -129,7 +133,7 @@ const checkPBLottery = async (req, res) => {
       });
     } catch (error) {
       res.status(500).json({
-        error: "An error occurred while updating lottery history.",
+        error: 'An error occurred while updating lottery history.',
       });
       return;
     }

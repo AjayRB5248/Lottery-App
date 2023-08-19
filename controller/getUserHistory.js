@@ -1,5 +1,5 @@
-const User = require("../models/User");
-const { MegamillionResult, PowerballResult } = require("../models/lottery");
+const User = require('../models/User');
+const { MegamillionResult, PowerballResult } = require('../models/lottery');
 
 const getUserHistory = async (req, res) => {
   try {
@@ -7,12 +7,12 @@ const getUserHistory = async (req, res) => {
     const user = await User.findById(userId);
 
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({ message: 'User not found' });
     }
 
     res.status(200).json({ user });
   } catch (error) {
-    res.status(500).json({ message: "Error fetching user profile" });
+    res.status(500).json({ message: 'Error fetching user profile' });
   }
 };
 
@@ -28,7 +28,7 @@ const getLotteryHistory = async (req, res) => {
     res.status(200).json({ latestMmWinningNumber, latestPbWinningNumber });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error fetching lottery history" });
+    res.status(500).json({ message: 'Error fetching lottery history' });
   }
 };
 
