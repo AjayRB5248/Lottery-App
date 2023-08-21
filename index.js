@@ -60,7 +60,7 @@ app.get("/fetchLotteryData", fetchLotteryData);
 
 cron.schedule("0 * * * *", () => {
   console.log("Cron job executed!");
-  // fetchLotteryData();
+  fetchLotteryData();
 });
 
 app.get("/", (req, res) => {
